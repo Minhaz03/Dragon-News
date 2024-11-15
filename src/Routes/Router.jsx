@@ -1,11 +1,21 @@
 import React from "react";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import HomeLayout from "../Layouts/HomeLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout></HomeLayout>,
+    children: [
+      {
+        path: "",
+        element: <Navigate to={"/category/01"}></Navigate>,
+      },
+      {
+        path: "/category/:id",
+        element: <h2>news</h2>,
+      },
+    ],
   },
   {
     path: "/news",
@@ -13,12 +23,12 @@ const router = createBrowserRouter([
   },
   {
     path: "auth",
-    element: <h1>Login</h1>
+    element: <h1>Login</h1>,
   },
   {
     path: "*",
-    element: <h1>Error</h1>
-  }
+    element: <h1>Error</h1>,
+  },
 ]);
 
 export default router;
