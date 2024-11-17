@@ -7,7 +7,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [error, setError] = useState({});
-  console.log(location);
+  // console.log(location);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log({ email, password });
+    // console.log({ email, password });
 
     userLogin(email, password)
       .then((result) => {
